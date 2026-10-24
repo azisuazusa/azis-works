@@ -4,6 +4,8 @@ title: "FLIK Shipping: a logistics platform from PR #1"
 description: "The shipping service I founded in February 2024 and built into a platform that carries about 50,000 orders a month."
 ---
 
+<p class="actions"><a class="btn primary" href="https://flik.co.id/en/pengiriman-kilat" target="_blank" rel="noopener noreferrer">See the product page &#8599;</a></p>
+
 ## Situation
 
 FLIK decided to offer its merchants a shipping product, initially on top of the Biteship aggregator. The repository was created on 13 February 2024 and was empty.

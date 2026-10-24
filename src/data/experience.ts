@@ -7,7 +7,7 @@ export interface Role {
   points: string[];
   /** Measured evidence from my repositories; see the data scripts in scripts/. */
   outcomes?: string[];
-  links?: { label: string; href: string }[];
+  links?: { label: string; href: string; external?: boolean }[];
 }
 
 export const experience: Role[] = [
@@ -47,6 +47,7 @@ export const experience: Role[] = [
     links: [
       { label: 'FLIK overview', href: '/flik/' },
       { label: 'Shipping', href: '/flik/shipping/' },
+      { label: 'Shipping product page', href: 'https://flik.co.id/en/pengiriman-kilat', external: true },
       { label: 'Courier integrations', href: '/flik/courier-integrations/' },
       { label: 'Ledger', href: '/flik/ledger/' },
     ],

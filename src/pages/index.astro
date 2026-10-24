@@ -120,7 +120,9 @@ import CareerChart from '../components/CareerChart.astro';
             )}
             {r.links && (
               <div class="role-links">
-                {r.links.map((l) => <a href={l.href}>{l.label} &rarr;</a>)}
+                {r.links.map((l) => l.external
+                  ? <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label} &#8599;</a>
+                  : <a href={l.href}>{l.label} &rarr;</a>)}
               </div>
             )}
           </div>
