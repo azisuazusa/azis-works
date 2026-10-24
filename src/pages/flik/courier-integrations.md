@@ -14,20 +14,19 @@ I designed and built eight direct integrations. Each one has rate-check, order c
 
 <div class="table-scroll">
 
-| Courier | What stood out | First direct order* | Orders to date |
-|---|---|---|---|
-| Ninja Express | A CLI to migrate Ninja's zone and price database; cargo, insurance and weight rules; cross-border Singapore and Malaysia | Nov 2024 | ~16,000 |
-| J&T | Proof of delivery, status mapping, subdistrict lookup | Dec 2024 | ~28,000 |
-| JNE | A price-discrepancy flow, custom AWB numbers, proof of delivery from CNote, separate COD and non-COD customer IDs | May 2025 | ~33,000 |
-| ID Express | Misroute minimisation using city and postal-code recommendation, COD cover areas, rate limiting | May 2025 | ~21,000 |
-| Lion Parcel | Migration and mapping, whitelist rollout, journey-type status handling | Jul 2025 | ~4,600 |
-| SPX (Shopee Express) | Full integration, district migration, evidence-proof webhooks, lost-and-damage status | Dec 2025 | ~278,000 |
-| SiCepat | A flat-rate pricing model, 997+ district mapping, a location-sync CLI | Jul 2026 | ~1,000 |
-| AnterAja | Kemendagri-code district mapping verified at 96%+ exact match, insurance support | Aug 2026 (integration merged) | not reported |
+| Courier | What stood out | First direct order |
+|---|---|---|
+| Ninja Express | A CLI to migrate Ninja's zone and price database; cargo, insurance and weight rules; cross-border Singapore and Malaysia | Nov 2024 |
+| J&T | Proof of delivery, status mapping, subdistrict lookup | Dec 2024 |
+| JNE | A price-discrepancy flow, custom AWB numbers, proof of delivery from CNote, separate COD and non-COD customer IDs | May 2025 |
+| ID Express | Misroute minimisation using city and postal-code recommendation, COD cover areas, rate limiting | May 2025 |
+| Lion Parcel | Migration and mapping, whitelist rollout, journey-type status handling | Jul 2025 |
+| SPX (Shopee Express) | Full integration, district migration, evidence-proof webhooks, lost-and-damage status | Dec 2025 |
+| SiCepat | A flat-rate pricing model, 997+ district mapping, a location-sync CLI | Jul 2026 |
+| AnterAja | Kemendagri-code district mapping verified at 96%+ exact match, insurance support | Aug 2026 (integration merged) |
 
 </div>
 
-Order counts are rounded and as of early September 2026. \* For AnterAja the date is when the integration was merged; I have no order count for it.
 
 ## Results
 

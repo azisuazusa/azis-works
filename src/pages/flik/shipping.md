@@ -39,7 +39,6 @@ Around it I built the pieces that make it a product rather than an API:
 
 </div>
 
-Business figures are rounded and come from production data as of 8 September 2026.
 
 ## Stack
 

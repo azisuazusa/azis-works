@@ -46,9 +46,6 @@ const features = [
       <Stat value="56" label="database migrations, each with an up and a down" />
       <Stat value="21" label="features specified as PRDs before building" />
     </ul>
-    <p class="note" style="margin-top:1rem">
-      The site is live; the repository is private, so there is no source link. Nothing about the practice's clients is shown on this page.
-    </p>
   </section>
 
   <section>
@@ -88,7 +85,6 @@ const features = [
       <ul class="stats">
         {metrics.items.map((m) => <Stat value={m.value} label={m.label} />)}
       </ul>
-      <p class="note" style="margin-top:1rem">Totals only, as of {metrics.asOf}.</p>
     </section>
   )}
 </Base>

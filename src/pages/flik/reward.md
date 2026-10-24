@@ -27,4 +27,3 @@ I put top-up on registration behind a feature flag. In 2025 I returned to add ru
 - In production: more than **210,000 reward transactions** for over **70,000 shoppers** across about 200 reward programmes, and roughly IDR 2bn of rewards issued.
 - Peak: December 2023, nearly 30,000 shoppers in a single month.
 
-Figures are rounded and come from production data as of 8 September 2026.

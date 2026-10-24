@@ -24,4 +24,3 @@ With direct courier contracts, FLIK could set its own prices, COD fees and retur
 - In 2026 to early September the platform recorded roughly IDR 3.5bn of provider discounts passed on to merchants.
 - Return fees (about 2,100 orders since August 2026) and flat rates are first-class ledger inputs rather than spreadsheet reconciliations.
 
-Figures are rounded and come from production data as of 8 September 2026.
