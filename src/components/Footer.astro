@@ -6,8 +6,8 @@ import { site } from '../config';
   <div class="wrap">
     <ul>
       <li><a href={`mailto:${site.email}`}>Email</a></li>
-      <li><a href={site.linkedin} rel="me noopener">LinkedIn</a></li>
-      <li><a href={site.github} rel="me noopener">GitHub</a></li>
+      <li><a href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn</a></li>
+      <li><a href={site.github} target="_blank" rel="me noopener noreferrer">GitHub</a></li>
       <li><a href={site.pdf} rel="noopener">Resume (PDF)</a></li>
     </ul>
     <p>&copy; {new Date().getFullYear()} {site.name}. Built with Astro.</p>
