@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Stat from '../components/Stat.astro';
+
+const features = [
+  'Menu management with photos, categories, and sold-out toggles and daily stock that cashiers can set from the POS',
+  'Customer web ordering: a single page with a two-column photo grid, item notes, order types, scheduled pickup, and order tracking',
+  'Order lifecycle with notifications, cancellation, and a live queue (new, preparing, ready) with status shortcuts',
+  'Backoffice for the owner: dashboard, finance, expenses with receipt attachments, funds and recurring savings, and ingredient stock with cost of goods (HPP)',
+  'Android POS in Jetpack Compose: new sale with a quick menu, and Bluetooth receipt printing with print settings',
+  'Two roles, admin and cashier, with sign-in by phone or email',
+];
+
+const parts = [
+  { name: 'bejo-app', stack: 'Go, Chi, Templ, sqlx, PostgreSQL, Tailwind, HTMX, Alpine.js', text: 'Backend and web: the backoffice, customer web ordering and the POS JSON API. About 445 Go files, 141 test files and 48 migrations.' },
+  { name: 'android', stack: 'Kotlin, Jetpack Compose, Retrofit, Moshi', text: 'The cashier\'s POS app: 113 Kotlin files. It takes orders at the counter and prints receipts over Bluetooth.' },
+  { name: 'docs and local', stack: 'Markdown, Traefik', text: '27 PRDs, each with a phased task list that records deviations found during implementation, plus a deployment guide for Dokploy and a Traefik setup mirroring production routing.' },
+];
+---
+
+<Base title="Bejo POS" description="A point-of-sale system for a single-outlet food and beverage business: Go backoffice and web ordering, plus an Android POS app.">
+  <section>
+    <p class="eyebrow">Sep &ndash; Oct 2026 &middot; Private repository</p>
+    <h1>Bejo POS</h1>
+    <p class="lead">
+      A point-of-sale system for a single-outlet food and beverage business in the Indonesian market: customers order on the web,
+      the cashier runs the counter from an Android app, the owner runs the numbers from a backoffice, .
+    </p>
+    <ul class="stats">
+      <Stat value="86" label="commits between 21 September and 18 October 2026" />
+      <Stat value="27" label="features specified as PRDs, implemented one at a time" />
+      <Stat value="2" label="apps: Go backend with web, and an Android POS" />
+      <Stat value="48" label="database migrations, each with an up and a down" />
+    </ul>
+    <p class="note" style="margin-top:1rem">
+      The repository is private, so there is no source link. Status is as written in the PRD task lists: implementation phases are done for nearly every feature,
+      while the dedicated QA phases have mostly not been run yet.
+    </p>
+  </section>
+
+  <section>
+    <h2>What is in it</h2>
+    <ul>
+      {features.map((f) => <li>{f}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2>The parts</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Part</th><th>Stack</th><th>What it does</th></tr></thead>
+        <tbody>
+          {parts.map((p) => <tr><td><code>{p.name}</code></td><td>{p.stack}</td><td>{p.text}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it was built</h2>
+    <p>
+      The backend reuses the architecture I developed for <a href="/yourspace/">YourSpace</a>: entity, use case, repository, controller, with all wiring in one file.
+      The code was ported and adapted, not imported, so the two projects stay independent modules. What is new here is HTMX and Alpine.js for partial updates and local state,
+      and an Android app in Jetpack Compose.
+    </p>
+    <p>
+      Every feature starts as a PRD with scope and decisions, and a decision index is the source of truth for what is in or out. Money is integer rupiah throughout,
+      the interface is in Bahasa Indonesia, and the design system never conveys order status by colour alone: each status has an icon and a label, and touch targets are at least 48px.
+    </p>
+  </section>
+</Base>

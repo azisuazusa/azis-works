@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import Stat from '../../components/Stat.astro';
+import MonthChart from '../../components/MonthChart.astro';
+import flik from '../../data/flik.json';
+
+const pages = [
+  { href: '/flik/shipping/', title: 'FLIK Shipping: a logistics platform from PR #1', text: 'The service I founded in February 2024 and now carries ~50k orders a month.' },
+  { href: '/flik/courier-integrations/', title: 'Eight direct courier integrations', text: 'Moving routing from an aggregator to direct integrations: 0% to 99%+.' },
+  { href: '/flik/pricing-cod/', title: 'Pricing, COD and fee engine', text: 'The configuration and rules that let FLIK monetise shipping.' },
+  { href: '/flik/ledger/', title: 'Rebuilding the ledger', text: 'From a dual-write experiment on Blnk to an in-house ledger with a back office for Finance.' },
+  { href: '/flik/reward/', title: 'Reward service', text: 'A loyalty system built from nothing in 2023.' },
+  { href: '/flik/ops-quality/', title: 'Operations tooling and engineering quality', text: 'What lets a small ops team run a logistics business, and the CI and quality work around it.' },
+];
+---
+
+<Base title="FLIK" description="Three years of software engineering at FLIK: a shipping platform, a rebuilt financial ledger and a loyalty system.">
+  <section>
+    <p class="eyebrow">Aug 2023 &ndash; present &middot; Software Engineer</p>
+    <h1>FLIK</h1>
+    <p class="lead">
+      Software engineering in Go across payments, logistics and finance. I turn PRDs into technical designs, build the services, and keep them running.
+    </p>
+    <ul class="stats">
+      <Stat value={`${flik.total}`} label="merged pull requests" />
+      <Stat value={`${flik.repos}`} label="repositories" />
+      <Stat value="~390k" label="shipping orders processed since May 2024" />
+      <Stat value="200+" label="merchants shipping through the platform" />
+    </ul>
+  </section>
+
+  <section>
+    <h2>Deep dives</h2>
+    <div class="cards">
+      {pages.map((p) => (
+        <a class="card" href={p.href}>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+          <span class="more">Read &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>Working with AI assistants</h2>
+    <p>
+      From late 2025 I have used AI coding assistants in my daily work here. Large changes start as written plans with numbered decisions, and the pull requests
+      from 2026 carry a problem, a solution and a test plan. The assistant drafts; I review, test and merge, and colleagues review as before.
+      <a href="/#ai">More on how I work with AI.</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Pace</h2>
+    <MonthChart data={flik.byMonth} caption={`Merged pull requests per month, ${flik.firstMerged.slice(0, 7)} to ${flik.asOf.slice(0, 7)}.`} />
+    <div class="table-scroll" style="margin-top:1.5rem">
+      <table>
+        <thead><tr><th>Year</th><th class="num">Merged PRs</th></tr></thead>
+        <tbody>
+          {Object.entries(flik.byYear).map(([y, n]) => (
+            <tr><td>{y}{y === flik.asOf.slice(0, 4) ? ' (to ' + flik.asOf.slice(5, 10).replace('-', '/') + ')' : ''}</td><td class="num">{n}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where the work went</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Repository</th><th class="num">Merged PRs</th></tr></thead>
+        <tbody>
+          {flik.byRepo.map((r) => <tr><td><code>{r.name}</code></td><td class="num">{r.prs}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+    <p class="note">The repositories are private, so there are no links to individual pull requests.</p>
+  </section>
+</Base>

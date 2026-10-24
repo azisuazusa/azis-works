@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import Stat from '../components/Stat.astro';
+import { site } from '../config';
+import { experience, education } from '../data/experience';
+import flik from '../data/flik.json';
+import kitabisa from '../data/kitabisa.json';
+import stack from '../data/stack.json';
+import CareerChart from '../components/CareerChart.astro';
+---
+
+<Base>
+  <section>
+    <p class="eyebrow">{site.title} &middot; {site.location}</p>
+    <h1>{site.name}</h1>
+    <p class="lead">
+      Software engineer who thrives on tackling complex challenges and turning ideas into reliable, scalable solutions.
+      Currently building software at FLIK.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href={site.pdf} rel="noopener">Download resume (PDF)</a>
+      <a class="btn" href={site.linkedin} rel="me noopener">LinkedIn</a>
+      <a class="btn" href={site.github} rel="me noopener">GitHub</a>
+      <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+    <ul class="stats">
+      <Stat value="200+" label="merchants shipping through a platform I founded" />
+      <Stat value="~50k" label="shipping orders a month on a service I founded" />
+      <Stat value="99%+" label="of those orders routed through courier integrations I wrote" />
+      <Stat value="10+ yrs" label="building software, from web and Android to backend" />
+    </ul>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <div class="cards">
+      <a class="card" href="/flik/">
+        <h3>FLIK</h3>
+        <p>A shipping platform built from an empty repository, a loyalty system, and a rebuilt financial ledger. Three years of work, mostly in Go.</p>
+        <span class="more">See the work &rarr;</span>
+      </a>
+      <a class="card" href="/yourspace/">
+        <h3>YourSpace</h3>
+        <p>A booking platform for a single-provider practice: Go backend and marketing site, built between July and October 2026. Live at yourspace.co.id.</p>
+        <span class="more">See the project &rarr;</span>
+      </a>
+      <a class="card" href="/bejopos/">
+        <h3>Bejo POS</h3>
+        <p>A point-of-sale system for a single-outlet food business: web ordering, a backoffice, and a Compose Android POS with Bluetooth printing.</p>
+        <span class="more">See the project &rarr;</span>
+      </a>
+      <a class="card" href="/kitabisa/">
+        <h3>Kitabisa</h3>
+        <p>Android, then backend, then senior backend at Kitabisa.com: notifications, automatic donations, a configuration service and a Sharia insurance product.</p>
+        <span class="more">See the work &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I like learning, solving problems and sharpening my craft. This is how I work:
+    </p>
+    <ul>
+      <li><strong>Product-focused.</strong> I work closely with product owners to turn business needs into clear technical solutions.</li>
+      <li><strong>Always improving the system.</strong> I address technical debt and lift existing systems with deliberate engineering initiatives.</li>
+      <li><strong>Clean, maintainable code.</strong> Scalable, well-structured code that follows best practices and conventions.</li>
+      <li><strong>Leading.</strong> I have led a small team of four: technical guidance, removing blockers, helping the team deliver.</li>
+      <li><strong>Whole lifecycle.</strong> Coding, code reviews, deployments, testing and performance tuning.</li>
+      <li><strong>Tools.</strong> Neovim for editing, and AI-assisted development to speed up work and sharpen decisions.</li>
+    </ul>
+    <div class="two">
+      <div>
+        <h3>Education</h3>
+        <dl class="facts">
+          {education.map((e) => (<><dt>{e.name}</dt><dd>{e.detail}</dd></>))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <h2>How I work with AI</h2>
+    <p>
+      Since late 2025 I have used AI coding assistants as part of my daily engineering work at FLIK. The assistant drafts; I decide, review and own what ships.
+    </p>
+    <ul>
+      <li><strong>Spec first.</strong> I write the design before the code: numbered-decision plans for large changes, and convention files that encode the architecture rules, so the assistant works inside constraints I set.</li>
+      <li><strong>Changes that explain themselves.</strong> Pull requests carry the problem, the solution and a test plan, so a reviewer sees the reasoning and not just the diff.</li>
+      <li><strong>Review and verification.</strong> I read and test what the assistant produces, my colleagues still review it, and I own the merge.</li>
+      <li><strong>Same discipline on my own projects.</strong> <a href="/yourspace/">YourSpace</a> and <a href="/bejopos/">Bejo POS</a> are built from written PRDs and a decision index, one feature at a time.</li>
+    </ul>
+    <p class="note">Neovim is still my editor.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <CareerChart
+      a={kitabisa.byYear}
+      b={flik.byYear}
+      aLabel="Kitabisa commits"
+      bLabel="FLIK merged PRs"
+      caption="Output per year from my own repositories. Units differ (commits vs merged pull requests), 2026 is partial, and Kitabisa counts exclude the Android app."
+    />
+    <ol class="timeline" style="margin-top:1.5rem">
+      {experience.map((r) => (
+        <li>
+          <div class="when">{r.period}{r.place && <><br />{r.place}</>}</div>
+          <div>
+            <h3>{r.role}</h3>
+            <div class="muted">{r.company}</div>
+            <ul>
+              {r.points.map((p) => <li>{p}</li>)}
+            </ul>
+            {r.outcomes && (
+              <ul class="outcomes">
+                {r.outcomes.map((o) => <li>{o}</li>)}
+              </ul>
+            )}
+            {r.links && (
+              <div class="role-links">
+                {r.links.map((l) => <a href={l.href}>{l.label} &rarr;</a>)}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="note">Roles and dates come from my LinkedIn profile. Highlighted numbers are measured from my own commit and pull request history.</p>
+
+    <h3 style="margin-top:2rem">Technologies in the repositories I have worked in</h3>
+    <p class="muted">Counted from dependency manifests, so this shows what the code uses, not a self-assessed skill level.</p>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Technology</th><th class="num">Kitabisa (of {stack.kitabisaRepos} repos)</th><th class="num">FLIK (of {stack.flikRepos} repos)</th></tr>
+        </thead>
+        <tbody>
+          {stack.items.map((t) => <tr><td>{t.name}</td><td class="num">{t.kitabisa || '–'}</td><td class="num">{t.flik || '–'}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>The best way to reach me is email.</p>
+    <ul>
+      <li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
+      <li>LinkedIn: <a href={site.linkedin} rel="me noopener">linkedin.com/in/azisuazusa</a></li>
+      <li>GitHub: <a href={site.github} rel="me noopener">github.com/azisuazusa</a></li>
+    </ul>
+  </section>
+</Base>

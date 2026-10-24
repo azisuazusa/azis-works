@@ -1,0 +1,34 @@
+{
+ "cutoff": "2023-07-31",
+ "commits": 1788,
+ "added": 204275,
+ "deleted": 91508,
+ "repos": 19,
+ "mainLanguageRepos": {
+  "go": 18,
+  "php": 1
+ },
+ "byYear": {
+  "2019": 69,
+  "2020": 203,
+  "2021": 391,
+  "2022": 457,
+  "2023": 303,
+  "2024": 123,
+  "2025": 242
+ },
+ "periods": {
+  "employed": {
+   "commits": 1404,
+   "added": 117099,
+   "deleted": 51814,
+   "repos": 16
+  },
+  "later": {
+   "commits": 384,
+   "added": 87176,
+   "deleted": 39694,
+   "repos": 10
+  }
+ }
+}

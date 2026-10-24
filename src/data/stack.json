@@ -1,0 +1,56 @@
+{
+ "kitabisaRepos": 19,
+ "flikRepos": 12,
+ "items": [
+  {
+   "name": "Go",
+   "kitabisa": 18,
+   "flik": 7
+  },
+  {
+   "name": "Redis",
+   "kitabisa": 16,
+   "flik": 6
+  },
+  {
+   "name": "PostgreSQL",
+   "kitabisa": 15,
+   "flik": 6
+  },
+  {
+   "name": "gRPC",
+   "kitabisa": 13,
+   "flik": 5
+  },
+  {
+   "name": "OpenTelemetry",
+   "kitabisa": 13,
+   "flik": 5
+  },
+  {
+   "name": "AWS SDK",
+   "kitabisa": 5,
+   "flik": 5
+  },
+  {
+   "name": "RabbitMQ",
+   "kitabisa": 9,
+   "flik": 1
+  },
+  {
+   "name": "Google Cloud",
+   "kitabisa": 5,
+   "flik": 4
+  },
+  {
+   "name": "Kafka",
+   "kitabisa": 8,
+   "flik": 0
+  },
+  {
+   "name": "MongoDB",
+   "kitabisa": 2,
+   "flik": 4
+  }
+ ]
+}

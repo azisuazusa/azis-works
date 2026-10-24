@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Stat from '../components/Stat.astro';
+
+// Optional aggregate usage metrics. The page renders without them; see README for how they are produced.
+const found = import.meta.glob('../data/yourspace-metrics.json', { eager: true, import: 'default' });
+const metrics = Object.values(found)[0] as
+  | { asOf: string; items: { value: string; label: string }[] }
+  | undefined;
+
+const parts = [
+  { name: 'booking-app', stack: 'Go, Chi, Templ, sqlx, PostgreSQL', text: 'The main backend: public booking flow, admin panel, event booking and check-in, payment links, and the public content API. About 310 Go files, 55 test files and 56 database migrations.' },
+  { name: 'landing-page', stack: 'Next.js 15, React 19, Tailwind 4', text: 'The marketing site. It renders content the practice authors in the admin panel, fetched from the backend and revalidated every minute, so there is no separate CMS.' },
+  { name: 'docs and local', stack: 'Markdown, Traefik', text: '42 documents in 21 dated feature folders, each with a PRD and task list. A Traefik setup mirrors production subdomain routing for local development.' },
+];
+
+const features = [
+  'Public booking flow with a service catalog, per-service staff mapping and ordering, business hours with multiple ranges, and blocked dates',
+  'Admin panel with staff roles and permissions',
+  'Events with registration modes, custom fields, public and private visibility, check-in and staff commission',
+  'Payment links and payment methods',
+  'Vouchers and commissions with payout tracking',
+  'A finance ledger with audit logs',
+  'WhatsApp message templates with automatic sending, and web push notifications',
+  'Reschedule links for customers and direct rescheduling by the admin',
+  'Customer list with filters and export',
+  'First-party analytics: visitor attribution and a booking funnel from landing page to confirmed booking',
+  'Installable PWA branding and local-time display for visitors',
+];
+---
+
+<Base title="YourSpace" description="A booking platform for a single-provider practice: Go backend and Next.js marketing site.">
+  <section>
+    <p class="eyebrow">Jul &ndash; Oct 2026 &middot; Live at yourspace.co.id &middot; Private repository</p>
+    <h1>YourSpace</h1>
+    <p class="lead">
+      A single-provider booking platform for a mental health practice in the Indonesian market. Customers book services and events;
+      the practice runs everything from an admin panel.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="https://yourspace.co.id/" target="_blank" rel="noopener noreferrer">Visit yourspace.co.id</a>
+    </div>
+    <ul class="stats">
+      <Stat value="156" label="commits between 14 July and 17 October 2026" />
+      <Stat value="3" label="parts: backend, marketing site, docs" />
+      <Stat value="56" label="database migrations, each with an up and a down" />
+      <Stat value="21" label="features specified as PRDs before building" />
+    </ul>
+    <p class="note" style="margin-top:1rem">
+      The site is live; the repository is private, so there is no source link. Nothing about the practice's clients is shown on this page.
+    </p>
+  </section>
+
+  <section>
+    <h2>What is in it</h2>
+    <ul>
+      {features.map((f) => <li>{f}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2>The parts</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Part</th><th>Stack</th><th>What it does</th></tr></thead>
+        <tbody>
+          {parts.map((p) => <tr><td><code>{p.name}</code></td><td>{p.stack}</td><td>{p.text}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>How the backend is organised</h2>
+    <p>
+      Every feature follows one layering: entity, use case, repository, controller. Each use case lives in its own package with a narrow interface
+      for only the repository methods it calls, controllers depend on use-case interfaces and never on repositories, and all dependency wiring
+      happens in a single file. Validation errors accumulate per form field, every error path is logged, and tests use hand-written fakes beside the code.
+    </p>
+    <p>
+      Features are written up first: each dated folder under <code>docs/</code> holds a PRD with the problem, scope and decisions, and a task list.
+    </p>
+  </section>
+
+  {metrics && (
+    <section>
+      <h2>In use</h2>
+      <ul class="stats">
+        {metrics.items.map((m) => <Stat value={m.value} label={m.label} />)}
+      </ul>
+      <p class="note" style="margin-top:1rem">Totals only, as of {metrics.asOf}.</p>
+    </section>
+  )}
+</Base>

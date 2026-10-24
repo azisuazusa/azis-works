@@ -1,0 +1,35 @@
+---
+interface Props {
+  data: Record<string, number>;
+  caption: string;
+}
+const { data, caption } = Astro.props;
+const entries = Object.entries(data);
+const W = 720, H = 190, padL = 34, padB = 24, padT = 8;
+const max = Math.max(...entries.map(([, v]) => v));
+const top = Math.ceil(max / 100) * 100;
+const bw = (W - padL) / entries.length;
+const y = (v: number) => padT + (H - padT - padB) * (1 - v / top);
+const alt = `Commits per year: ${entries.map(([k, v]) => `${k} ${v}`).join(', ')}.`;
+---
+
+<figure class="chart">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={alt}>
+    {[0, top / 2, top].map((t) => (
+      <g>
+        <line x1={padL} x2={W} y1={y(t)} y2={y(t)} stroke="var(--line)" stroke-width="1" />
+        <text x={padL - 6} y={y(t) + 4} text-anchor="end" font-size="10" fill="var(--muted)">{t}</text>
+      </g>
+    ))}
+    {entries.map(([k, v], i) => (
+      <g>
+        <rect x={padL + i * bw + bw * 0.15} y={y(v)} width={bw * 0.7} height={H - padB - y(v)} rx="2" fill="var(--bar)">
+          <title>{k}: {v} commits</title>
+        </rect>
+        <text x={padL + i * bw + bw / 2} y={y(v) - 4} text-anchor="middle" font-size="10" fill="var(--muted)">{v}</text>
+        <text x={padL + i * bw + bw / 2} y={H - 6} text-anchor="middle" font-size="10" fill="var(--muted)">{k}</text>
+      </g>
+    ))}
+  </svg>
+  <figcaption>{caption}</figcaption>
+</figure>

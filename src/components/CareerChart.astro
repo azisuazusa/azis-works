@@ -1,0 +1,46 @@
+---
+interface Props {
+  a: Record<string, number>;
+  b: Record<string, number>;
+  aLabel: string;
+  bLabel: string;
+  caption: string;
+}
+const { a, b, aLabel, bLabel, caption } = Astro.props;
+const years = [...new Set([...Object.keys(a), ...Object.keys(b)])].sort();
+const W = 720, H = 210, padL = 34, padB = 24, padT = 14;
+const max = Math.max(...years.flatMap((y) => [a[y] ?? 0, b[y] ?? 0]));
+const top = Math.ceil(max / 100) * 100;
+const gw = (W - padL) / years.length;
+const bw = gw * 0.34;
+const y = (v: number) => padT + (H - padT - padB) * (1 - v / top);
+const alt = `Output per year. ${aLabel}: ${years.filter((k) => a[k]).map((k) => `${k} ${a[k]}`).join(', ')}. ${bLabel}: ${years.filter((k) => b[k]).map((k) => `${k} ${b[k]}`).join(', ')}.`;
+---
+
+<figure class="chart">
+  <div class="legend">
+    <span><i style="background:var(--bar2)"></i>{aLabel}</span>
+    <span><i style="background:var(--bar)"></i>{bLabel}</span>
+  </div>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={alt}>
+    {[0, top / 2, top].map((t) => (
+      <g>
+        <line x1={padL} x2={W} y1={y(t)} y2={y(t)} stroke="var(--line)" stroke-width="1" />
+        <text x={padL - 6} y={y(t) + 4} text-anchor="end" font-size="10" fill="var(--muted)">{t}</text>
+      </g>
+    ))}
+    {years.map((yr, i) => {
+      const gx = padL + i * gw + gw / 2;
+      const va = a[yr] ?? 0;
+      const vb = b[yr] ?? 0;
+      return (
+        <g>
+          {va > 0 && <rect x={gx - bw - 1} y={y(va)} width={bw} height={H - padB - y(va)} rx="2" fill="var(--bar2)"><title>{yr}: {va} {aLabel}</title></rect>}
+          {vb > 0 && <rect x={gx + 1} y={y(vb)} width={bw} height={H - padB - y(vb)} rx="2" fill="var(--bar)"><title>{yr}: {vb} {bLabel}</title></rect>}
+          <text x={gx} y={H - 6} text-anchor="middle" font-size="10" fill="var(--muted)">{yr}</text>
+        </g>
+      );
+    })}
+  </svg>
+  <figcaption>{caption}</figcaption>
+</figure>

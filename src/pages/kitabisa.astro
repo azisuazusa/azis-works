@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import Stat from '../components/Stat.astro';
+import YearChart from '../components/YearChart.astro';
+import k from '../data/kitabisa.json';
+
+const n = (v: number) => v.toLocaleString('en-US');
+const kLines = Math.round(k.added / 1000);
+
+const highlights = [
+  {
+    title: 'Notification service',
+    text: 'Designed and built a scalable notification system that integrates with multiple providers, with a retryable mechanism and logs for reliability. Clean architecture separates business logic from the interface layers.',
+  },
+  {
+    title: 'Automatic donation system',
+    text: 'Lets users schedule donations like an auto-debit, at daily, weekly or monthly intervals and at specific times, including the popular 5 AM "sedekah subuh". It had to scale with user growth: processing 30k donations first took 2 hours, which hurt at peak times. Asynchronous processing with RabbitMQ handled 80k donations in 1.5 hours, and early execution of steps plus batching with goroutines brought the run down to 1 hour.',
+  },
+  {
+    title: 'Kitabisa Saling Jaga',
+    text: 'A new product: a Sharia insurance platform where users contribute to a pool intended to help others in times of need.',
+  },
+  {
+    title: 'Key-value configuration system',
+    text: 'A centralized configuration service with a dashboard, so configuration changes take effect in real time without a deployment.',
+  },
+  {
+    title: 'Operations Slackbot',
+    text: 'A Slackbot that lets the operations team update user data and status efficiently.',
+  },
+  {
+    title: 'Android app',
+    text: 'In 2019, developed the Kitabisa.com Android app in Kotlin, moving it off a React Native build, and set up its CI/CD pipeline on CircleCI.',
+  },
+];
+---
+
+<Base title="Kitabisa" description="Four years of backend engineering at Kitabisa.com: notifications, automatic donations, a configuration service and more.">
+  <section>
+    <p class="eyebrow">Mar 2019 &ndash; Jul 2023 full-time, then part-time / freelance to Jun 2025 &middot; Private repositories</p>
+    <h1>Kitabisa</h1>
+    <p class="lead">
+      Android engineer, then backend engineer, then senior backend engineer at Kitabisa.com, the Indonesian crowdfunding platform.
+      Most of the work was Go services.
+    </p>
+    <ul class="stats">
+      <Stat value={n(k.commits)} label="commits of mine, Sep 2019 to Jun 2025" />
+      <Stat value={`${k.repos}`} label="private repositories I committed to" />
+      <Stat value={`${kLines}k`} label="lines added across them" />
+      <Stat value={`${k.mainLanguageRepos.go} of ${k.repos}`} label="repositories are primarily Go" />
+    </ul>
+    <p class="note" style="margin-top:1rem">
+      Counts are my own non-merge commits in local clones of private repositories, matched by my git author emails. The Android app is not among the clones.
+      The repositories are private and internal names are left out.
+    </p>
+  </section>
+
+  <section>
+    <h2>Highlights</h2>
+    <dl class="facts">
+      {highlights.map((h) => (<><dt>{h.title}</dt><dd>{h.text}</dd></>))}
+    </dl>
+  </section>
+
+  <section>
+    <h2>Activity</h2>
+    <YearChart data={k.byYear} caption="Commits per year across the repositories." />
+    <div class="table-scroll" style="margin-top:1.5rem">
+      <table>
+        <thead><tr><th>Period</th><th class="num">Commits</th><th class="num">Repositories</th><th class="num">Lines added</th></tr></thead>
+        <tbody>
+          <tr><td>Sep 2019 &ndash; Jul 2023 (full-time)</td><td class="num">{n(k.periods.employed.commits)}</td><td class="num">{k.periods.employed.repos}</td><td class="num">{n(k.periods.employed.added)}</td></tr>
+          <tr><td>Aug 2023 &ndash; Jun 2025 (part-time / freelance)</td><td class="num">{n(k.periods.later.commits)}</td><td class="num">{k.periods.later.repos}</td><td class="num">{n(k.periods.later.added)}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>After my full-time role ended in July 2023, I continued backend work on the platform part-time as a freelancer, alongside other work, until June 2025.</p>
+    <p class="note">The full role history is on the <a href="/#experience">experience timeline</a>.</p>
+  </section>
+</Base>

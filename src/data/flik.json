@@ -1,0 +1,332 @@
+{
+ "asOf": "2026-10-23",
+ "firstMerged": "2023-09-04",
+ "total": 799,
+ "repos": 12,
+ "additions": 3659098,
+ "deletions": 652799,
+ "byYear": {
+  "2023": 120,
+  "2024": 196,
+  "2025": 271,
+  "2026": 212
+ },
+ "byRepo": [
+  {
+   "name": "flik-shipping",
+   "prs": 502
+  },
+  {
+   "name": "flik-backend",
+   "prs": 225
+  },
+  {
+   "name": "flik-abdidalem",
+   "prs": 16
+  },
+  {
+   "name": "merchant-dashboard-revamp",
+   "prs": 13
+  },
+  {
+   "name": "flik-cicd",
+   "prs": 12
+  },
+  {
+   "name": "shared",
+   "prs": 11
+  },
+  {
+   "name": "blnk",
+   "prs": 8
+  },
+  {
+   "name": "payment-gateway",
+   "prs": 5
+  },
+  {
+   "name": "feature-flags",
+   "prs": 4
+  },
+  {
+   "name": "asynq",
+   "prs": 1
+  },
+  {
+   "name": "checkout-web",
+   "prs": 1
+  },
+  {
+   "name": "test_tools",
+   "prs": 1
+  }
+ ],
+ "byTheme": [
+  {
+   "name": "FLIK Shipping core platform (orders, payment, cancel, pickup)",
+   "prs": 89
+  },
+  {
+   "name": "Ledger v3 / Blnk migration",
+   "prs": 74
+  },
+  {
+   "name": "COD, fees & discounts",
+   "prs": 57
+  },
+  {
+   "name": "Reward service",
+   "prs": 52
+  },
+  {
+   "name": "Location & coverage data",
+   "prs": 50
+  },
+  {
+   "name": "CI/CD, build & observability",
+   "prs": 49
+  },
+  {
+   "name": "Courier integration: JNE (direct)",
+   "prs": 45
+  },
+  {
+   "name": "Courier integration: Ninja Express",
+   "prs": 33
+  },
+  {
+   "name": "Webhook, tracking & audit trail",
+   "prs": 28
+  },
+  {
+   "name": "Courier integration: SPX (Shopee Express)",
+   "prs": 28
+  },
+  {
+   "name": "Shipping analytics & reports",
+   "prs": 27
+  },
+  {
+   "name": "Courier integration: SiCepat",
+   "prs": 26
+  },
+  {
+   "name": "Merchant customer report & analytics API",
+   "prs": 23
+  },
+  {
+   "name": "Notifications (FCM / WhatsApp / Email)",
+   "prs": 23
+  },
+  {
+   "name": "Courier integration: Lion Parcel",
+   "prs": 18
+  },
+  {
+   "name": "Courier integration: ID Express",
+   "prs": 17
+  },
+  {
+   "name": "Ops tooling: Jakubot Slackbot & internal APIs",
+   "prs": 17
+  },
+  {
+   "name": "Refactoring, tests & code quality",
+   "prs": 16
+  },
+  {
+   "name": "Print label & shipping documents",
+   "prs": 14
+  },
+  {
+   "name": "Courier invoice reconciliation",
+   "prs": 13
+  },
+  {
+   "name": "KYC / internal dashboard (Abdi Dalem)",
+   "prs": 12
+  },
+  {
+   "name": "Return fee / flat rate / pricing rules",
+   "prs": 11
+  },
+  {
+   "name": "Bulk upload & multi-warehouse",
+   "prs": 9
+  },
+  {
+   "name": "Courier integration: Biteship (aggregator)",
+   "prs": 8
+  },
+  {
+   "name": "Payment config & PG fee",
+   "prs": 6
+  },
+  {
+   "name": "Courier integration: J&T",
+   "prs": 6
+  },
+  {
+   "name": "Courier integration: AnterAja",
+   "prs": 6
+  },
+  {
+   "name": "Feature flags & shared libs",
+   "prs": 4
+  }
+ ],
+ "byMonth": [
+  {
+   "month": "2023-09",
+   "prs": 17
+  },
+  {
+   "month": "2023-10",
+   "prs": 23
+  },
+  {
+   "month": "2023-11",
+   "prs": 43
+  },
+  {
+   "month": "2023-12",
+   "prs": 37
+  },
+  {
+   "month": "2024-01",
+   "prs": 21
+  },
+  {
+   "month": "2024-02",
+   "prs": 8
+  },
+  {
+   "month": "2024-03",
+   "prs": 25
+  },
+  {
+   "month": "2024-04",
+   "prs": 7
+  },
+  {
+   "month": "2024-05",
+   "prs": 17
+  },
+  {
+   "month": "2024-06",
+   "prs": 18
+  },
+  {
+   "month": "2024-07",
+   "prs": 16
+  },
+  {
+   "month": "2024-08",
+   "prs": 25
+  },
+  {
+   "month": "2024-09",
+   "prs": 26
+  },
+  {
+   "month": "2024-10",
+   "prs": 8
+  },
+  {
+   "month": "2024-11",
+   "prs": 17
+  },
+  {
+   "month": "2024-12",
+   "prs": 8
+  },
+  {
+   "month": "2025-01",
+   "prs": 7
+  },
+  {
+   "month": "2025-02",
+   "prs": 18
+  },
+  {
+   "month": "2025-03",
+   "prs": 18
+  },
+  {
+   "month": "2025-04",
+   "prs": 12
+  },
+  {
+   "month": "2025-05",
+   "prs": 24
+  },
+  {
+   "month": "2025-06",
+   "prs": 25
+  },
+  {
+   "month": "2025-07",
+   "prs": 28
+  },
+  {
+   "month": "2025-08",
+   "prs": 26
+  },
+  {
+   "month": "2025-09",
+   "prs": 33
+  },
+  {
+   "month": "2025-10",
+   "prs": 21
+  },
+  {
+   "month": "2025-11",
+   "prs": 34
+  },
+  {
+   "month": "2025-12",
+   "prs": 25
+  },
+  {
+   "month": "2026-01",
+   "prs": 18
+  },
+  {
+   "month": "2026-02",
+   "prs": 7
+  },
+  {
+   "month": "2026-03",
+   "prs": 3
+  },
+  {
+   "month": "2026-04",
+   "prs": 23
+  },
+  {
+   "month": "2026-05",
+   "prs": 18
+  },
+  {
+   "month": "2026-06",
+   "prs": 24
+  },
+  {
+   "month": "2026-07",
+   "prs": 24
+  },
+  {
+   "month": "2026-08",
+   "prs": 21
+  },
+  {
+   "month": "2026-09",
+   "prs": 39
+  },
+  {
+   "month": "2026-10",
+   "prs": 35
+  }
+ ]
+}

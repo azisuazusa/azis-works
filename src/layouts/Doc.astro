@@ -1,0 +1,17 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  frontmatter: { title: string; description?: string };
+}
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} description={frontmatter.description}>
+  <article class="doc">
+    <p class="crumbs"><a href="/flik/">&larr; FLIK</a></p>
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.description && <p class="lead muted">{frontmatter.description}</p>}
+    <slot />
+  </article>
+</Base>

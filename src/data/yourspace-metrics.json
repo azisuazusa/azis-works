@@ -1,0 +1,10 @@
+{
+  "asOf": "23 October 2026",
+  "items": [
+    { "value": "375", "label": "bookings created since mid-July: 126 appointments and 249 event registrations, cancellations included" },
+    { "value": "88", "label": "appointments completed" },
+    { "value": "17", "label": "events scheduled, from 24 July to 8 November" },
+    { "value": "85", "label": "event check-ins" },
+    { "value": "17k+", "label": "first-party analytics events recorded across the booking funnel" }
+  ]
+}
