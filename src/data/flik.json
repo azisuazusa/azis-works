@@ -11,56 +11,6 @@
   "2025": 271,
   "2026": 212
  },
- "byRepo": [
-  {
-   "name": "flik-shipping",
-   "prs": 502
-  },
-  {
-   "name": "flik-backend",
-   "prs": 225
-  },
-  {
-   "name": "flik-abdidalem",
-   "prs": 16
-  },
-  {
-   "name": "merchant-dashboard-revamp",
-   "prs": 13
-  },
-  {
-   "name": "flik-cicd",
-   "prs": 12
-  },
-  {
-   "name": "shared",
-   "prs": 11
-  },
-  {
-   "name": "blnk",
-   "prs": 8
-  },
-  {
-   "name": "payment-gateway",
-   "prs": 5
-  },
-  {
-   "name": "feature-flags",
-   "prs": 4
-  },
-  {
-   "name": "asynq",
-   "prs": 1
-  },
-  {
-   "name": "checkout-web",
-   "prs": 1
-  },
-  {
-   "name": "test_tools",
-   "prs": 1
-  }
- ],
  "byTheme": [
   {
    "name": "FLIK Shipping core platform (orders, payment, cancel, pickup)",

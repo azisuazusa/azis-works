@@ -66,16 +66,4 @@ const pages = [
     </div>
   </section>
 
-  <section>
-    <h2>Where the work went</h2>
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Repository</th><th class="num">Merged PRs</th></tr></thead>
-        <tbody>
-          {flik.byRepo.map((r) => <tr><td><code>{r.name}</code></td><td class="num">{r.prs}</td></tr>)}
-        </tbody>
-      </table>
-    </div>
-    <p class="note">The repositories are private, so there are no links to individual pull requests.</p>
-  </section>
 </Base>

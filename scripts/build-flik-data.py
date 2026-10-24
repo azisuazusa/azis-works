@@ -13,7 +13,7 @@ prs.sort(key=lambda p: p["mergedAt"])
 
 by_year = collections.Counter(p["mergedAt"][:4] for p in prs)
 by_month = collections.Counter(p["mergedAt"][:7] for p in prs)
-by_repo = collections.Counter(p["repository"]["name"] for p in prs)
+repo_count = len({p["repository"]["name"] for p in prs})
 by_theme = collections.Counter(p["theme"] for p in prs)
 
 # every month between first and last, zero-filled, so the chart has no gaps
@@ -29,11 +29,10 @@ out = {
     "asOf": prs[-1]["mergedAt"][:10],
     "firstMerged": prs[0]["mergedAt"][:10],
     "total": len(prs),
-    "repos": len(by_repo),
+    "repos": repo_count,
     "additions": sum(p["additions"] for p in prs),
     "deletions": sum(p["deletions"] for p in prs),
     "byYear": dict(sorted(by_year.items())),
-    "byRepo": [{"name": k, "prs": v} for k, v in by_repo.most_common()],
     "byTheme": [{"name": k, "prs": v} for k, v in by_theme.most_common() if k != "Other"],
     "byMonth": months,
 }
