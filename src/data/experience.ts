@@ -43,6 +43,7 @@ export const experience: Role[] = [
       'Founded FLIK Shipping from an empty repository: about 50,000 orders a month, with more than 99% routed through eight direct courier integrations I wrote.',
       'Rebuilt the financial ledger, from a dual-write experiment on Blnk to an in-house ledger with a Finance back office, then migrated merchants onto it in production: 120 pull requests.',
       'Built the Reward service in 2023: over 210,000 reward transactions.',
+      'Built an AI ops agent in Slack that investigates orders and runs routine fixes through masked, read-only data and requester-confirmed actions.',
     ],
     links: [
       { label: 'FLIK overview', href: '/flik/' },
