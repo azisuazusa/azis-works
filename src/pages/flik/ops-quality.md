@@ -21,4 +21,4 @@ description: "The tools that let a small operations team run a logistics busines
 - **Observability.** OpenTelemetry on every repository adapter, and the APM to OTel migration.
 - **Performance.** N+1 query elimination in courier lookups with batch processing.
 - **Tests.** Integration-test suites per courier, API-based integration tests, and three dedicated unit-test coverage pushes.
-- **Reviews.** 290 merged pull requests reviewed for colleagues.
+- **Reviews.** 293 merged pull requests reviewed for colleagues.
