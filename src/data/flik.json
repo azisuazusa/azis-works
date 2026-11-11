@@ -1,24 +1,24 @@
 {
- "asOf": "2026-10-23",
+ "asOf": "2026-11-11",
  "firstMerged": "2023-09-04",
- "total": 799,
- "repos": 12,
- "additions": 3659098,
- "deletions": 652799,
+ "total": 874,
+ "repos": 13,
+ "additions": 4194912,
+ "deletions": 827199,
  "byYear": {
   "2023": 120,
   "2024": 196,
   "2025": 271,
-  "2026": 212
+  "2026": 287
  },
  "byTheme": [
   {
-   "name": "FLIK Shipping core platform (orders, payment, cancel, pickup)",
-   "prs": 89
+   "name": "Ledger v3 / Blnk migration",
+   "prs": 120
   },
   {
-   "name": "Ledger v3 / Blnk migration",
-   "prs": 74
+   "name": "FLIK Shipping core platform (orders, payment, cancel, pickup)",
+   "prs": 89
   },
   {
    "name": "COD, fees & discounts",
@@ -30,7 +30,7 @@
   },
   {
    "name": "Location & coverage data",
-   "prs": 50
+   "prs": 51
   },
   {
    "name": "CI/CD, build & observability",
@@ -38,7 +38,7 @@
   },
   {
    "name": "Courier integration: JNE (direct)",
-   "prs": 45
+   "prs": 46
   },
   {
    "name": "Courier integration: Ninja Express",
@@ -58,7 +58,7 @@
   },
   {
    "name": "Courier integration: SiCepat",
-   "prs": 26
+   "prs": 27
   },
   {
    "name": "Merchant customer report & analytics API",
@@ -67,6 +67,10 @@
   {
    "name": "Notifications (FCM / WhatsApp / Email)",
    "prs": 23
+  },
+  {
+   "name": "Slack ops agent (agent API & masked DB views)",
+   "prs": 22
   },
   {
    "name": "Courier integration: Lion Parcel",
@@ -86,7 +90,7 @@
   },
   {
    "name": "Print label & shipping documents",
-   "prs": 14
+   "prs": 16
   },
   {
    "name": "Courier invoice reconciliation",
@@ -109,15 +113,15 @@
    "prs": 8
   },
   {
+   "name": "Courier integration: AnterAja",
+   "prs": 8
+  },
+  {
    "name": "Payment config & PG fee",
    "prs": 6
   },
   {
    "name": "Courier integration: J&T",
-   "prs": 6
-  },
-  {
-   "name": "Courier integration: AnterAja",
    "prs": 6
   },
   {
@@ -276,7 +280,11 @@
   },
   {
    "month": "2026-10",
-   "prs": 35
+   "prs": 58
+  },
+  {
+   "month": "2026-11",
+   "prs": 52
   }
  ]
 }

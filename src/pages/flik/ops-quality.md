@@ -7,6 +7,7 @@ description: "The tools that let a small operations team run a logistics busines
 ## Operations tooling
 
 - **A Slack bot** for the operations team: bulk cancel, 3PL mapping updates, re-triggering order creation, AWB lookup, report downloads and invoice upload, with once-per-request alerting and concurrent force-cancel.
+- **A Slack ops agent** (November 2026) that took over the bot's order actions. It investigates order issues from logs and masked database views that hold no personal data, and runs AWB retries, order status fixes and merchant dashboard access once the person who asked confirms.
 - **Webhook audit trail** as HTTP middleware: request and response bodies, headers, duration, provider auto-detection, request-ID correlation and an AWS Batch retention job. About 2.8 million webhook logs captured since January 2026.
 - **Courier invoice reconciliation.** Parsers for each courier's spreadsheet format, approval and mismatch adjustment, a read/adjust API, and an admin dashboard for Finance that syncs approved invoices to the ledger. It replaced hand reconciliation of tens of thousands of line items.
 - **Location tooling.** Postal-code checks, redzone and misroute handling, and area search.

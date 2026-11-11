@@ -30,7 +30,8 @@ The design that followed is an in-house ledger service built on upstream Blnk Co
 - **Rule-book version pinning**, so a flow never posts under mixed versions when the rules change mid-flow.
 - **Daily close** that verifies Blnk's hash chain.
 - **Per-merchant cut-over behind feature flags**, so each caller (shipping, the merchant dashboard, finance tools) can move off the legacy ledger independently.
+- **Production migration.** A step-by-step wizard moves merchants onto the new ledger one at a time, with defer and un-defer, explained balance differences, and a rule book squashed to a single version for go-live. Reconciliation and month-end close fixes followed in production, along with a redesign of the back office's user experience.
 
 ## Results
 
-74 merged pull requests on this theme. The Spanner path is gone, Finance can post correcting journals into historical periods, and as of late October 2026 the replacement ledger and its back office are built, with the legacy path switchable off per merchant.
+120 merged pull requests on this theme. The Spanner path is gone, Finance can post correcting journals into historical periods, and in November 2026 merchants were moving onto the replacement ledger in production, with the legacy path switchable off per merchant.
