@@ -7,5 +7,5 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/azisuazusa/',
   github: 'https://github.com/azisuazusa',
   // Google Drive direct-download link for the resume (file id from the share link).
-  pdf: 'https://drive.google.com/uc?export=download&id=1qcQoNIJoTRepNYwHj5vjj8uFIAJTtrKI',
+  pdf: 'https://drive.google.com/uc?export=download&id=1kPCRCrKiVuwypZKaqgmfvDMBOow4i-V-',
 };

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Azis Abdul Bachar - CV</title>
+<meta name="author" content="Azis Abdul Bachar">
+<meta name="description" content="CV of Azis Abdul Bachar, Software Engineer (backend, Go), Jakarta">
+<style>
+  @page { size: A4; margin: 13mm 15mm 12mm; }
+  :root { --text: #1c1b19; --muted: #5c5952; --line: #d9d4ca; --accent: #1f5f4a; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0; color: var(--text); background: #fff;
+    font: 9.6pt/1.42 Arial, Helvetica, sans-serif;
+  }
+  a { color: inherit; text-decoration: none; }
+  h1 { font-size: 21pt; margin: 0; line-height: 1.1; }
+  .headline { color: var(--accent); font-weight: 600; font-size: 11pt; margin-top: 2pt; }
+  .contact { color: var(--muted); margin-top: 3pt; font-size: 9pt; }
+  .contact a, a.ext { color: var(--accent); text-decoration: underline; text-decoration-color: #9cc1b3; text-underline-offset: 1.5pt; }
+  .contact span + span::before { content: "·"; margin: 0 6pt; color: var(--line); }
+  h2 {
+    font-size: 9pt; text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent);
+    margin: 11pt 0 5pt; padding-bottom: 2.5pt; border-bottom: 1px solid var(--line);
+  }
+  p { margin: 0 0 4pt; }
+  ul { margin: 2pt 0 0; padding-left: 11pt; }
+  li { margin-bottom: 2.6pt; }
+  li::marker { color: var(--accent); }
+  strong { font-weight: 700; }
+  .role { margin-bottom: 8pt; break-inside: avoid; }
+  .role.long { break-inside: auto; }
+  .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; }
+  .role-title { font-weight: 700; font-size: 10.2pt; }
+  .role-title .co { font-weight: 400; color: var(--muted); }
+  .when { color: var(--muted); white-space: nowrap; font-size: 9pt; }
+  .sub { color: var(--muted); font-size: 9pt; margin-top: 0.5pt; }
+  .earlier li { margin-bottom: 2pt; }
+  .earlier .when { margin-left: 4pt; }
+  dl.skills { display: grid; grid-template-columns: 30mm 1fr; gap: 2.5pt 8pt; margin: 0; }
+  dl.skills dt { font-weight: 700; }
+  dl.skills dd { margin: 0; }
+  .edu li { margin-bottom: 1.5pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Azis Abdul Bachar</h1>
+  <div class="headline">Software Engineer</div>
+  <div class="contact">
+    <span>Jakarta, Indonesia</span>
+    <span><a href="tel:+6289654129045">+62 896-5412-9045</a></span>
+    <span><a href="mailto:azis.abdul.bachar@gmail.com">azis.abdul.bachar@gmail.com</a></span>
+  </div>
+  <div class="contact">
+    <span><a href="https://azis.works">https://azis.works</a></span>
+    <span><a href="https://www.linkedin.com/in/azisuazusa/">https://linkedin.com/in/azisuazusa</a></span>
+    <span><a href="https://github.com/azisuazusa">https://github.com/azisuazusa</a></span>
+  </div>
+</header>
+
+<h2>Summary</h2>
+<p>
+  Backend-focused software engineer with 10+ years of building software, from web and Android to Go services.
+  At FLIK I founded the shipping platform from an empty repository and grew it to <strong>~50,000 orders a month for 200+ merchants</strong>,
+  rebuilt the financial ledger, and built an AI ops agent that the operations team uses in production.
+  I turn PRDs into technical specifications, design for reliability, and own systems through production. I have led a small team of four.
+</p>
+
+<h2>Experience</h2>
+
+<div class="role long">
+  <div class="role-head">
+    <div class="role-title">Software Engineer <span class="co">&middot; <a class="ext" href="https://flik.co.id">FLIK</a>, South Jakarta</span></div>
+    <div class="when">Aug 2023 – present</div>
+  </div>
+  <div class="sub">874 merged pull requests across 13 repositories (Sep 2023 – Nov 2026), mostly in Go.</div>
+  <ul>
+    <li><strong>Founded FLIK Shipping from an empty repository</strong> (Feb 2024): port-and-adapter Go on PostgreSQL, Redis-backed async workers, AWS App Runner and Batch.
+      ~390,000 orders processed to Sep 2026, ~50,000 a month at peak, 200+ merchants. Covers rate-check, ordering, pickup, tracking, COD, refunds, labels, invoices, analytics and a public API.</li>
+    <li><strong>Built eight direct courier integrations</strong> (Ninja Express, J&amp;T, JNE, ID Express, Lion Parcel, SPX, SiCepat, AnterAja), moving direct routing
+      from 0% of orders (Oct 2024) to <strong>above 98.9% every month of 2026</strong>, removing the aggregator margin and giving FLIK control of pricing, COD and returns.</li>
+    <li><strong>Built the pricing, COD and fee engine:</strong> per-merchant overrides, flat rates, idempotent return fees and per-service volumetric divisors.
+      COD grew from ~5% of orders (2024) to ~83% (2026), with ~IDR 45bn collected and ~IDR 3.5bn of provider discounts passed on to merchants (2026, to early Sep).</li>
+    <li><strong>Rebuilt the financial ledger:</strong> a dual-write to Blnk proven by a zero-tolerance shadow validator, then an in-house ledger on Blnk Core
+      with versioned posting rules, a Finance back office (month-end close, settlement reconciliation, maker-checker, Xero exports) and per-merchant cut-over behind feature flags.
+      Merchants are now migrating in production; ~22,000 lines of legacy Spanner code removed. 120 pull requests.</li>
+    <li><strong>Built an AI ops agent in Slack</strong> that investigates production order issues from logs and code and runs routine fixes. Safe by design: masked read-only
+      database views, no raw credentials, requester confirmation on every write, its own GitHub App identity, and a weekly usage and cost report (under $1 per request on average).
+      Took over the legacy bot's order actions within two weeks.</li>
+    <li><strong>Built the Reward (loyalty) service from scratch</strong> in 2023 with a rule engine for configurable rules: first transaction ten weeks after bootstrap;
+      210,000+ reward transactions for 70,000+ shoppers across ~200 programmes, ~IDR 2bn in rewards issued.</li>
+    <li><strong>Operations tooling and quality:</strong> webhook audit trail (~2.8M logs since Jan 2026), courier invoice reconciliation replacing manual reconciliation of tens of
+      thousands of line items, reusable GitHub Actions CI, OpenTelemetry on every repository adapter, and a migration to go-feature-flag.</li>
+    <li><strong>Spec-first, AI-assisted workflow</strong> since late 2025: design docs with numbered decisions and convention files before code; I review, test and own every change that ships.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <div class="role-title">Backend Engineer, part-time / freelance <span class="co">&middot; <a class="ext" href="https://kitabisa.com">Kitabisa.com</a></span></div>
+    <div class="when">Aug 2023 – Jun 2025</div>
+  </div>
+  <ul>
+    <li>Continued backend work on the platform alongside other work: 384 commits across 10 repositories.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <div class="role-title">Senior Software Engineer, Backend <span class="co">&middot; <a class="ext" href="https://kitabisa.com">Kitabisa.com</a>, South Jakarta</span></div>
+    <div class="when">Mar 2022 – Jul 2023</div>
+  </div>
+  <ul>
+    <li><strong>Scaled the automatic donation system</strong> (daily, weekly and monthly schedules, including the 5 AM “sedekah subuh” slot) through major user growth:
+      30k donations in 2 hours &rarr; 80k in 1.5 hours with asynchronous processing on RabbitMQ &rarr; 1 hour with early step execution and goroutine batching.</li>
+    <li>Designed a notification service integrating multiple providers, with retries and logging for reliability.</li>
+    <li>Turned PRDs into technical documentation, designed new systems, broke down tasks for the team and led backend discussions in sprint grooming. 689 commits.</li>
+  </ul>
+</div>
+
+<div class="role">
+  <div class="role-head">
+    <div class="role-title">Software Engineer, Backend <span class="co">&middot; <a class="ext" href="https://kitabisa.com">Kitabisa.com</a>, South Jakarta</span></div>
+    <div class="when">Oct 2019 – Apr 2022</div>
+  </div>
+  <ul>
+    <li>Developed Kitabisa Saling Jaga, a Sharia insurance platform where users contribute to a shared pool that helps members in times of need.</li>
+    <li>Built a centralised key-value configuration system with a dashboard, allowing real-time config changes without deployments.</li>
+    <li>Created a Slackbot for the operations team to update user data and status. 713 commits, almost all in Go services.</li>
+  </ul>
+</div>
+
+<h2>Independent projects</h2>
+<div class="role">
+  <div class="role-head">
+    <div class="role-title">YourSpace <span class="co">&middot; <a class="ext" href="https://yourspace.co.id">yourspace.co.id</a></span></div>
+    <div class="when">Jul 2026 – present</div>
+  </div>
+  <ul>
+    <li>Booking platform for a single-provider practice: Go backend and Next.js marketing site, live in production. 375 bookings since mid-July, 56 migrations.</li>
+  </ul>
+</div>
+<div class="role">
+  <div class="role-head">
+    <div class="role-title">Bejo POS</div>
+    <div class="when">Sep – Oct 2026</div>
+  </div>
+  <ul>
+    <li>Point-of-sale system for a single-outlet food business: web ordering, a back office and an Android POS in Jetpack Compose with Bluetooth printing. 27 PRDs and 86 commits in four weeks.</li>
+  </ul>
+</div>
+
+<h2>Earlier experience</h2>
+<ul class="earlier">
+  <li><strong>Software Engineer, Android</strong>, <a class="ext" href="https://kitabisa.com">Kitabisa.com</a> <span class="when">Mar – Oct 2019</span>: rewrote the Android app in Kotlin, replacing a React Native build; set up CI/CD on CircleCI.</li>
+  <li><strong>Software Engineer, Android</strong>, MatahariMall.com <span class="when">Aug 2018 – Mar 2019</span>: developed and maintained the MatahariMall.com and Hypermart Android apps.</li>
+  <li><strong>Software Engineer</strong>, Edulab Indonesia <span class="when">Aug 2017 – Aug 2018</span>: education app for Android and iOS, its web CMS and backend; led frontend engineers on a mobile app at Triplogic.</li>
+  <li><strong>Software Engineer (intern)</strong>, PT. Bixbox Teknologi Perkasa <span class="when">Apr – Aug 2017</span>: React Native social app for hikers, an NLP CRM bot, and a port to native Android.</li>
+  <li><strong>Software Engineer, Web</strong>, Pragma Informatika <span class="when">Apr – Dec 2016</span>: web-based task management system, with its system documentation and user guide.</li>
+</ul>
+
+<h2>Skills</h2>
+<dl class="skills">
+  <dt>Languages</dt><dd>Go, SQL</dd>
+  <dt>Data</dt><dd>PostgreSQL, Redis, MongoDB, Cloud Spanner, Blnk (double-entry ledger)</dd>
+  <dt>Messaging &amp; APIs</dt><dd>gRPC, REST, webhooks, RabbitMQ, Kafka, asynq</dd>
+  <dt>Cloud &amp; ops</dt><dd>AWS (App Runner, Batch, EC2, S3, Secrets Manager), Google Cloud, GitHub Actions, OpenTelemetry, feature flags</dd>
+  <dt>Practices</dt><dd>Port-and-adapter architecture, ledgers and reconciliation, third-party integrations, integration testing, spec-first design, AI-assisted development</dd>
+  <dt>Prior mobile</dt><dd>Kotlin, Android, Jetpack Compose</dd>
+</dl>
+
+<h2>Education</h2>
+<ul class="edu">
+  <li><strong>Universitas Indraprasta PGRI (UNINDRA)</strong>, Bachelor of Technology, Information Technology</li>
+  <li><strong>Refactory</strong>, Computer Programming certification, 2017</li>
+  <li><strong>SMK Negeri 2 Kota Bekasi</strong>, Computer Software Engineering</li>
+</ul>
+
+</body>
+</html>
