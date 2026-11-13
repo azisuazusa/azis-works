@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>azis.works social preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #fbfaf8;
+    color: #1c1b19;
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+    border-left: 16px solid #1f5f4a;
+  }
+  .eyebrow { font-size: 26px; color: #615e57; letter-spacing: 0.02em; padding-right: 180px; }
+  h1 { font-size: 80px; line-height: 1.05; letter-spacing: -0.02em; margin-top: 18px; }
+  .lead { font-size: 34px; line-height: 1.35; margin-top: 26px; max-width: 1000px; text-wrap: balance; }
+  .stats { display: flex; gap: 56px; margin-top: auto; }
+  .stat { max-width: 300px; }
+  .stat b { display: block; font-size: 48px; color: #1f5f4a; letter-spacing: -0.01em; }
+  .stat span { font-size: 22px; line-height: 1.3; color: #615e57; }
+  .url { position: absolute; right: 80px; top: 76px; font-size: 26px; color: #1f5f4a; font-weight: 600; }
+</style>
+<script src="pages.js"></script>
+</head>
+<body>
+  <div class="url">azis.works</div>
+  <p class="eyebrow" id="eyebrow"></p>
+  <h1 id="title"></h1>
+  <p class="lead" id="lead"></p>
+  <div class="stats" id="stats"></div>
+  <script>
+    var p = window.OG_PAGES[location.hash.slice(1) || 'home'];
+    document.getElementById('eyebrow').textContent = p.eyebrow;
+    document.getElementById('title').textContent = p.title;
+    document.getElementById('lead').textContent = p.lead;
+    var s = document.getElementById('stats');
+    p.stats.forEach(function (x) {
+      var d = document.createElement('div'); d.className = 'stat';
+      var b = document.createElement('b'); b.textContent = x[0];
+      var t = document.createElement('span'); t.textContent = x[1];
+      d.append(b, t); s.append(d);
+    });
+  </script>
+</body>
+</html>

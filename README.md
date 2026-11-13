@@ -35,6 +35,12 @@ python3 scripts/build-flik-data.py                          # or set FLIK_DATA t
 The button uses `site.pdf` in `src/config.ts`, a Google Drive direct-download link
 (`https://drive.google.com/uc?export=download&id=<FILE_ID>`). The Drive file must be shared as "Anyone with the link".
 
+## Social preview image
+
+`public/og.png` (1200×630) is the default `og:image`. The shipping, ledger, ops-agent, reward and YourSpace pages have their own in `public/og/` (set via `image:` frontmatter or the `image` prop on `Base`).
+The text for each image lives in `og/pages.js` and the layout in `og/og.html`; run `./og/build.sh` to re-render them all with headless Chrome.
+LinkedIn caches previews; refresh with the [Post Inspector](https://www.linkedin.com/post-inspector/) after deploying.
+
 ## Deploy and custom domain
 
 1. Push to a GitHub repo, then Settings > Pages > Source: **GitHub Actions**.

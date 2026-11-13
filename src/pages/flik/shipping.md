@@ -2,6 +2,7 @@
 layout: ../../layouts/Doc.astro
 title: "FLIK Shipping: a logistics platform from PR #1"
 description: "The shipping service I founded in February 2024 and built into a platform that carries about 50,000 orders a month."
+image: /og/shipping.png
 ---
 
 <p class="actions"><a class="btn primary" href="https://flik.co.id/en/pengiriman-kilat" target="_blank" rel="noopener noreferrer">See the product page &#8599;</a></p>

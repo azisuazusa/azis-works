@@ -2,6 +2,7 @@
 layout: ../../layouts/Doc.astro
 title: "An AI ops agent in Slack"
 description: "An AI agent that lets FLIK's operations team investigate orders and run routine fixes from Slack, built so it never holds raw credentials or personal data."
+image: /og/ops-agent.png
 ---
 
 ## Situation

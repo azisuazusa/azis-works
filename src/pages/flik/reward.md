@@ -2,6 +2,7 @@
 layout: ../../layouts/Doc.astro
 title: "Reward service"
 description: "A loyalty system built from nothing in 2023: shoppers earn and spend rewards at participating merchants."
+image: /og/reward.png
 ---
 
 ## Situation
@@ -24,6 +25,6 @@ I put top-up on registration behind a feature flag. In 2025 I returned to add ru
 
 - 52 merged pull requests.
 - The first transaction happened ten weeks after the bootstrap PR (4 September to 15 November 2023).
-- In production: more than **210,000 reward transactions** for over **70,000 shoppers** across about 200 reward programmes, and roughly IDR 2bn of rewards issued.
+- In production: more than **210,000 reward transactions** for over **70,000 shoppers** across about 200 reward programmes.
 - Peak: December 2023, nearly 30,000 shoppers in a single month.
 

@@ -2,6 +2,7 @@
 layout: ../../layouts/Doc.astro
 title: "Rebuilding FLIK's ledger"
 description: "Replacing the ledger behind FLIK's money movements: from a dual-write experiment on Blnk to an in-house ledger with a back office for Finance."
+image: /og/ledger.png
 ---
 
 ## Situation
